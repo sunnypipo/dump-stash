@@ -7,9 +7,13 @@ import pymupdf
 import pymupdf4llm
 import pytesseract
 import tempfile
+import os
+from dotenv import load_dotenv
 
-INPUT_FOLDER = Path("./dump")
-OUTPUT_VAULT = Path("./vault")
+load_dotenv()
+
+INPUT_FOLDER = Path(os.getenv("INPUT_FOLDER", "./dump"))
+OUTPUT_VAULT = Path(os.getenv("OUTPUT_VAULT", "./vault"))
 DOUBLE_DUMP_FOLDER = INPUT_FOLDER / "double_dumped"
 FAILED_DUMP_FOLDER = INPUT_FOLDER / "failed_dumps"
 
