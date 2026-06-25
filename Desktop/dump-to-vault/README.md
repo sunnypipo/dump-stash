@@ -151,8 +151,8 @@ Converted files will appear in your output folder with the same filename stem:
 
 | Result | Action |
 |---|---|
-| ✓ Converted successfully | `.md` written to `OUTPUT_FOLDER`; original untouched |
-| ✗ Failed or duplicate | skipped; reason printed at end of run |
+| Converted successfully | `.md` written to `OUTPUT_FOLDER`; original untouched |
+| Failed or duplicate | skipped; reason printed at end of run |
 
 ---
 
@@ -166,22 +166,3 @@ pthread_setaffinity_np failed
 ```
 
 These are harmless — proot cannot access Android GPU or low-level CPU scheduling. Your files will still be processed correctly.
-
----
-
-## Troubleshooting
-
-**`No such file or directory` on storage paths**
-Make sure you logged in with the bind mount: `ubuntu` (using the alias from Step 3), not `proot-distro login ubuntu`.
-
-**`apt: command not found`**
-You are in Termux, not proot. Run `ubuntu` first to enter proot.
-
-**`git: command not found`**
-Run `apt install git` inside proot.
-
-**Installer hangs with no output**
-It's working — `apt install` is quiet. Wait a few minutes, especially on first run.
-
-**`ERROR: Could not open requirements file`**
-The requirements.txt filename is misspelled in the repo. Run `git pull` to get the fix then retry `./install.sh`.
