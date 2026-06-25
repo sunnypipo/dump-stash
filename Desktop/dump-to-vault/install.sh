@@ -52,13 +52,13 @@ setup_venv() {
 # ── folders ───────────────────────────────────────────────────────────────────
 setup_folders() {
     info "Creating folders..."
-    mkdir -p dump/double_dumped dump/failed_dumps vault
+    mkdir -p dump output
 }
 
 # ── main ──────────────────────────────────────────────────────────────────────
 main() {
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "  dump-to-vault installer"
+    echo "  dump-stash installer"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo
 
