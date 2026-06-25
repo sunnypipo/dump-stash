@@ -1,0 +1,6 @@
+ocrmypdf
+pillow
+pymupdf
+pymupdf4llm
+pypandoc
+pytesseract
