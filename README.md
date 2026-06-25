@@ -112,8 +112,8 @@ nano .env
 Set your paths:
 
 ```bash
-INPUT_FOLDER=/root/storage/shared/Documents/dump
-OUTPUT_FOLDER=/root/storage/shared/Documents/output
+INPUT_FOLDER= /root/storage/shared/Documents/dump
+OUTPUT_FOLDER= /root/storage/shared/Documents/output
 ```
 
 Save with `Ctrl+X` → `Y` → `Enter`.
