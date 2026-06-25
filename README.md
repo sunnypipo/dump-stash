@@ -50,6 +50,7 @@ Inside proot, create the folders on Android shared storage:
 mkdir -p /root/storage/shared/Documents/dump
 mkdir -p /root/storage/shared/Documents/output
 ```
+> **Note:** This step is optional. If you skip it and don't set `INPUT_FOLDER` / `OUTPUT_FOLDER` in Step 6, dump-stash will default to using `./dump` and `./output` inside the cloned project folder instead.
 ---
 ## Step 5 — Clone and install
 ```bash
