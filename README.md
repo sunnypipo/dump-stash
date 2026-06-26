@@ -1,5 +1,5 @@
 # dump-stash
-A CLI tool that converts files (PDF, DOCX, images) into Markdown and writes them to an output folder. Runs on proot-Ubuntu via Termux on Android.
+A python script that converts files (PDF, DOCX, images) into Markdown and writes them to an output folder. Runs on proot-Ubuntu via Termux on Android.
 
 ---
 
