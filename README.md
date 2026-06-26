@@ -1,6 +1,30 @@
 # dump-stash
 A CLI tool that converts files (PDF, DOCX, images) into Markdown and writes them to an output folder. Runs on proot-Ubuntu via Termux on Android.
 ---
+## Why use this
+
+Most AI chat interfaces (ChatGPT, Claude, Gemini) accept PDF uploads, but they read the file themselves — you don't control how much of it they use. dump-stash converts your files to markdown first, so you can paste the readable text directly into the chat.
+
+meaning:
+- no skipped pages
+- images and scanned PDF's text becomes selectable text
+- you can paste text directly on chatbox
+---
+## Limitations
+The output is not always clean. Depending on the source file
+
+you may get:
+- garbled or missing text from scanned PDFs with low-quality scans
+- broken table formatting from complex multi-column layouts
+- OCR not recognizing text in handwritten notes or stylized fonts
+- Stray characters, broken line breaks or random characters appearing in the output
+---
+If the markdown looks messy, just send it to an AI to clean up before using it.
+> example:
+> "Clean up this Markdown. Fix broken formatting, remove repeated headers and footers, and make it readable. Don't change the actual content."
+
+>then, paste the raw .md output
+---
 ## Supported formats
 `PDF` `DOCX` `PNG` `JPG` `JPEG` `WEBP` `TIFF` `BMP` `GIF`
 ---
@@ -17,7 +41,7 @@ Verify it worked:
 ```bash
 ls ~/storage/shared
 ```
-You should see your Android shared storage folders.
+>You should see your Android shared storage folders.
 ---
 ## Step 2 — Install proot-distro
 ```bash
@@ -76,7 +100,7 @@ Set your paths:
 INPUT_FOLDER= /root/storage/shared/Documents/dump
 OUTPUT_FOLDER= /root/storage/shared/Documents/output
 ```
-Save with `Ctrl+X` → `Y` → `Enter`.
+>Save with `Ctrl+X` → `Y` → `Enter`.
 ---
 ## Step 7 — Run
 ```bash
@@ -120,4 +144,4 @@ When running the script you may see messages like:
 GPU device discovery failed: Permission denied
 pthread_setaffinity_np failed
 ```
-These are harmless — proot cannot access Android GPU or low-level CPU scheduling. Your files will still be processed correctly.
+These are harmless proot cannot access Android GPU or low-level CPU scheduling. Your files will still be processed correctly.
