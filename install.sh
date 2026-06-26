@@ -25,18 +25,25 @@ check_environment() {
 # ── system deps ───────────────────────────────────────────────────────────────
 install_system_deps() {
     info "Updating apt..."
-    apt update -qq
+    apt update
+
+    info "Upgrading existing packages..."
+    apt upgrade -y
 
     info "Installing system dependencies..."
     apt install -y \
+        curl \
+        git \
         tesseract-ocr \
         tesseract-ocr-eng \
         tesseract-ocr-fil \
         pandoc \
         ghostscript \
         python3 \
-        python3-pip \
         python3-venv
+    # Note: python3-pip is intentionally skipped.
+    # pip is bootstrapped inside the venv via ensurepip (more reliable on
+    # minimal Ubuntu images where python3-pip may be missing or broken).
 }
 
 # ── python venv ───────────────────────────────────────────────────────────────
@@ -44,9 +51,14 @@ setup_venv() {
     info "Creating virtual environment..."
     python3 -m venv .venv
 
+    info "Bootstrapping pip inside venv..."
+    .venv/bin/python -m ensurepip --upgrade
+
+    info "Upgrading pip..."
+    .venv/bin/pip install --upgrade pip
+
     info "Installing Python dependencies..."
-    .venv/bin/pip install --upgrade pip -q
-    .venv/bin/pip install -r requirements.txt -q
+    .venv/bin/pip install -r requirements.txt
 }
 
 # ── folders ───────────────────────────────────────────────────────────────────
