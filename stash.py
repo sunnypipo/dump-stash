@@ -97,6 +97,7 @@ def move_to_double_dumped(file_path: Path) -> Path:
     return Path(shutil.move(str(file_path), str(dest)))
 
 def convert_all() -> None:
+    INPUT_FOLDER.mkdir(parents=True, exist_ok=True)
     OUTPUT_FOLDER.mkdir(parents=True, exist_ok=True)
     DOUBLE_DUMPED_FOLDER.mkdir(parents=True, exist_ok=True)
     if not INPUT_FOLDER.exists():
